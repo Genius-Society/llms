@@ -1,4 +1,4 @@
-# LLMs WebUI
+# 大模型部署实例合集 WebUI
 [![license](https://img.shields.io/github/license/Genius-Society/llms.svg)](./LICENSE)
 [![auto-sync](https://github.com/Genius-Society/llms/actions/workflows/auto-sync.yml/badge.svg)](https://github.com/Genius-Society/llms/actions/workflows/auto-sync.yml)
 [![hf](https://img.shields.io/badge/huggingface-llms-ffd21e.svg)](https://huggingface.co/spaces/Genius-Society/llms)
