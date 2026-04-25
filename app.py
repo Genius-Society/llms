@@ -23,4 +23,4 @@ if __name__ == "__main__":
         with gr.Tab(_L("真实 DeepSeek R1 Qwen 7B 模型")):
             DeepSeek_R1_Qwen_7B()
 
-    demo.launch(css="#gradio-share-link-button-0 { display: none; }")
+    demo.launch(css="#gradio-share-link-button-0 { display: none; }", ssr_mode=False)
