@@ -23,7 +23,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Step 3: 同步至 HuggingFace
+      # Step 2: 同步至 HuggingFace
       - name: Sync Files to HuggingFace
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
@@ -45,7 +45,7 @@ jobs:
             echo "Files are the same, no changes."
           fi
 
-      # Step 2: 同步至 ModelScope
+      # Step 3: 同步至 ModelScope
       - name: Sync Files to ModelScope
         env:
           MS_TOKEN: ${{ secrets.MS_TOKEN }}
