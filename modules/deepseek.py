@@ -99,20 +99,23 @@ def predict(msg, history, prompt, temper, max_tokens, top_k, repeat_penalty, top
 
 
 def DeepSeek_R1_Qwen_7B():
-    with gr.Accordion(label=_L("⚙️ 参数设置"), open=False) as ds_acc:
-        prompt = gr.Textbox(
-            "You are a useful assistant. first recognize user request and then reply carfuly and thinking",
-            label=_L("系统提示词"),
-        )
-        temper = gr.Slider(0, 1, 0.6, label=_L("温度参数"))
-        maxtoken = gr.Slider(0, 32000, 10000, label=_L("最大 token 数"))
-        topk = gr.Slider(1, 80, 40, label=_L("Top-K 采样"))
-        repet = gr.Slider(0, 2, 1.1, label=_L("重复性惩罚"))
-        topp = gr.Slider(0, 1, 0.95, label=_L("Top-P 采样"))
+    with gr.Blocks() as dpsk:
+        with gr.Accordion(label=_L("⚙️ 参数设置"), open=False) as ds_acc:
+            prompt = gr.Textbox(
+                "You are a useful assistant. first recognize user request and then reply carfuly and thinking",
+                label=_L("系统提示词"),
+            )
+            temper = gr.Slider(0, 1, 0.6, label=_L("温度参数"))
+            maxtoken = gr.Slider(0, 32000, 10000, label=_L("最大 token 数"))
+            topk = gr.Slider(1, 80, 40, label=_L("Top-K 采样"))
+            repet = gr.Slider(0, 2, 1.1, label=_L("重复性惩罚"))
+            topp = gr.Slider(0, 1, 0.95, label=_L("Top-P 采样"))
 
-    return gr.ChatInterface(
-        predict,
-        description=DESCRIPTION,
-        additional_inputs_accordion=ds_acc,
-        additional_inputs=[prompt, temper, maxtoken, topk, repet, topp],
-    ).queue()
+        gr.ChatInterface(
+            predict,
+            description=DESCRIPTION,
+            additional_inputs_accordion=ds_acc,
+            additional_inputs=[prompt, temper, maxtoken, topk, repet, topp],
+        ).queue()
+
+    return dpsk
