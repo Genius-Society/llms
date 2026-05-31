@@ -18,4 +18,8 @@ gr.TabbedInterface(
     interface_list=[LLM_APIs(), DeepSeek_R1_Qwen_7B()],
     tab_names=[_L("API 部署聚合"), _L("真实 DeepSeek R1 Qwen 7B 模型")],
     title=_L("大模型部署实例合集"),
-).launch(css="#gradio-share-link-button-0 { display: none; }", ssr_mode=False)
+).launch(
+    theme=gr.themes.Soft(),
+    css="#gradio-share-link-button-0 { display: none; }",
+    ssr_mode=False,
+)
